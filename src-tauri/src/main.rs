@@ -24,11 +24,11 @@ fn save_file(data: Vec<&str>) -> &str {
         text += &line
     }
 
-    // tworzy plik/nadpisuje w dir /src-tauri
+    // tworzy plik/nadpisuje w katalogu o 1 wyżej od /src-tauri
     let mut file =
-                File::create("example.txt")
-                // dodajemy expect żeby obsłużyć błąd i z typu Result<File, Error> wyciągnąć Error
+                File::create("../todos/example.txt")
                 .expect("Nie można utworzyć pliku");
+                // dodajemy expect żeby obsłużyć błąd i z typu Result<File, Error> wyciągnąć Error
 
     file
     // write_all() -> zapisuje ciąg bajtów (ASCII, UTF8) do pliku
