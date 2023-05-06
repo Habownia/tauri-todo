@@ -16,7 +16,7 @@
    1. Pobrać ikonę z iconmonstr
    2. Wrzucić do /src-tauri
    3. odpalić `yarn tauri icon ./src-tauri/icons/app-icon.png`
-   4. Bruh to działa tylko w buildzie
+9. Wysyłanie wiadomości
 
 ## Jeśli chcesz zbuildować (długo trwa)
 

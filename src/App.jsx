@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { invoke } from '@tauri-apps/api/tauri';
 import { writeText, readText } from '@tauri-apps/api/clipboard';
+import { message } from '@tauri-apps/api/dialog';
 
 import './App.css';
 
@@ -37,6 +38,8 @@ function App() {
 	async function save() {
 		//! JSON musi mieć taki sam klucz jak w Ruscie argument (klucz w snake_case)
 		setSaveMessage(await invoke('save_file', { data: todos }));
+		// wysyła powiadomienie type: info|warning|error
+		await message('Zapisano', { title: 'TODO', type: 'info' });
 
 		//? ustawione żeby sprawdzić działanie timeouta (większa bajera)
 		//? setSaveMessage('Zapisano!');
