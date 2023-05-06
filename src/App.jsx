@@ -52,7 +52,6 @@ function App() {
 	return (
 		<div>
 			<h1>Todo App</h1>
-			<ol>{todosElements}</ol>
 			<form onSubmit={addTodos}>
 				<input
 					type='text'
@@ -67,6 +66,9 @@ function App() {
 					Save on PC
 				</button>
 			</form>
+			<div>
+				<ol>{todosElements}</ol>
+			</div>
 			<h2>{saveMessage}</h2>
 		</div>
 	);
