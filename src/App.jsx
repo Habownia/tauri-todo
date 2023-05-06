@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { invoke } from '@tauri-apps/api/tauri';
+import { writeText, readText } from '@tauri-apps/api/clipboard';
+
 import './App.css';
 
 function App() {
@@ -17,7 +19,17 @@ function App() {
 
 	// tworzy elementy tej todolisty
 	const todosElements = todos.map((elem, index) => {
-		return <li key={index}>{elem}</li>;
+		return (
+			<li
+				key={index}
+				onClick={async () => {
+					//kopiuje element do schowka, a readText() pobiera ze schowka
+					await writeText(elem);
+				}}
+			>
+				{elem}
+			</li>
+		);
 	});
 
 	const [saveMessage, setSaveMessage] = useState('');
@@ -28,10 +40,10 @@ function App() {
 
 		//? ustawione żeby sprawdzić działanie timeouta (większa bajera)
 		//? setSaveMessage('Zapisano!');
-		const timer = setTimeout(() => {
-			setSaveMessage('');
-		}, 2000);
-		return () => clearTimeout(timer);
+		// const timer = setTimeout(() => {
+		// 	setSaveMessage('');
+		// }, 2000);
+		// return () => clearTimeout(timer);
 	}
 
 	return (
