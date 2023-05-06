@@ -16,7 +16,7 @@
    1. Pobrać ikonę z iconmonstr
    2. Wrzucić do /src-tauri
    3. odpalić `yarn tauri icon ./src-tauri/icons/app-icon.png`
-9. Wysyłanie wiadomości
+9. Wysyłanie wiadomości tj. pkt.5 z <https://tauri.app/v1/api/js/dialog>
 
 ## Jeśli chcesz zbuildować (długo trwa)
 
